@@ -1,4 +1,7 @@
+# GIT hub https://github.com/aldisgeirdal/tileTraveller
+
 # Algorithm for Tile Traveller:
+# Player:
 # 1. There are 9 tiles, three rows and three columns. 
 #       Some of the walls of the tiles have openings, but not all.
 #       The one marked 1,1 is at the left bottom.
@@ -11,7 +14,14 @@
 # 6. If player moves to a direction available, relocate player in program and go back to 3.
 # 7. If player is located in tile 3,1, player is in victory location. Inform player he is in victory location.
 
-# print("You can travel: (N)orth.")    # player is at tile 3,1
+# Program
+# 1. Figure out on what tile player is located.
+# 2. Inform player of possible moves, depending on where player is located.
+# 3. Ask player for direction.
+# 4. If direction is valid - change location of player (change x or y).
+# 5. If direction is not valid - inform player. Go back to 3.
+# 6. If player is on tile 3,3 - inform player he is in victory location.
+
 x = 1
 y = 1
 
