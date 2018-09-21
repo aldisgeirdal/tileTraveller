@@ -14,6 +14,12 @@
 #   functions, however, it became a struggle when I started to make the functions afterwards, as 
 #   I had a hard time turning the program around, after having written it once. 
 
+def victory(x, y):
+    if (x == 3 and y == 1):
+        return False
+    else:
+        return True
+
 def instructions (x, y):
     """Fallið gefur notanda upplýsingar um hvert hann má fara á þeim reit sem hann er staddur á."""
     if (x == 1 and y == 1) or (x == 2 and y == 1):   #tiles 1,1 and 2,1 are the same.
@@ -32,61 +38,61 @@ def instructions (x, y):
         print("Victory!")
         return False
     return True
-        
+
 def movements (direction, x, y):
     north = "nN"    # up     y += 1
     east = "eE"     # right  x += 1
     south = "sS"    # down   y -= 1
     west = "wW"     # left   x -= 1
-    while 1 <= x <= 3 and 1 <= y <= 3:
+    while x <= 3 and y <= 3:
         if direction in north:
             if ((x==1 and y ==1) or (x == 2 and y == 1) or (x == 3 and y == 2) or (x == 1 and y == 2)):
                 y += 1
                 break   
             else:
                 print("Not a valid direction!")
-                return (x,y)
+                return (x, y)
         elif direction in east:
             if ((x == 1 and y == 2) or (x == 1 and y == 3) or (x == 2 and y == 3)):
                 x += 1
                 break
             else:
                 print("Not a valid direction!")
-                return (x,y)
+                return (x, y)
         elif direction in south:
             if ((x == 1 and y == 2) or (2 == 1 and y == 2) or (x == 3 and y == 3) or (x == 3 and y == 2) or (x == 2 and y == 2)):
                 y -= 1  
                 break  
             else:
                 print("Not a valid direction!")
-                return (x,y)
+                return (x, y)
         elif direction in west:
-            if ((x == 2 and y == 3) or (x == 2 and y == 2) or (x == 3 and y == 3)):
+            if (x == 2 and y == 3) or (x == 2 and y == 2) or (x == 3 and y == 3):    
                 x -= 1 
                 break
+            else: 
+                print("Not a valid direction!")   
+                return (x, y)
         else:
             print("Not a valid direction!")   
+            return (x, y)
     return (x, y)
-
-def victory(x, y):
-    if (x == 3 and y == 1):
-        return False
-    else:
-        return True
 
 x = 1
 y = 1
+x_1 = 1
+y_1 = 1
 
 while True:
     instructions(x, y)
     if not victory(x, y):
         break
-    while victory(x,y):
+    while victory(x, y):
         direction = input("Direction: ")
         x, y = movements(direction, x, y)
-        if x == 1 and y == 1:
+        if x_1 == x and y_1 == y:
             pass
         else:
+            x_1, y_1 = x, y
             break
 
-        
