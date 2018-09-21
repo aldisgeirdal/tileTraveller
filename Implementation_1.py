@@ -48,7 +48,7 @@ while True:
         break    
 
     while 1 <= x <= 3 and 1 <= y <= 3:
-        direction = input("Direction: ")
+        direction = input("Direction: ") # if x!= 1 or y 1= 1 - finna sameiginlega hvar má ekki far í ákv átt.
         if direction in north and ((x==1 and y ==1) or (x == 2 and y == 1) or (x == 3 and y == 2) or (x == 1 and y == 2)):
             y += 1
             break
